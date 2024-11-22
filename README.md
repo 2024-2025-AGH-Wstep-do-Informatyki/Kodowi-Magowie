@@ -8,3 +8,6 @@ Osoby w grupie
 
 # Języki programowania
 -python
+
+# O projekcie
+Nasza gra to historia o magu Gothardzie, który w świecie pochłoniętym wojną próbuje znaleść Zosię. 
