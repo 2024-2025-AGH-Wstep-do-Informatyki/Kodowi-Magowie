@@ -1,4 +1,7 @@
 # Kodowi-Magowie
 
 Osoby w grupie
-- Mikołaj M 
+- Mateusz Ż
+- Zuzanna K
+- Mikołaj M
+- Justyna M
