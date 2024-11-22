@@ -5,3 +5,6 @@ Osoby w grupie
 - Zuzanna K
 - Mikołaj M
 - Justyna M
+
+# Języki programowania
+-python
