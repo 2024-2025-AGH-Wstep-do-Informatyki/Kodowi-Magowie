@@ -8,13 +8,13 @@ def tekst(plik):
 def wybor_tekstu(numer):
     wiadomosc_bledu = "Podano zły numer tekstu."
     if(numer == 1):
-        with codecs.open("Projekt_Końcowy/Zaklecia1.txt", 'r', 'utf-8') as plik:
+        with codecs.open("Pisanie_zaklec/Zaklecia1.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     elif(numer == 2):
-        with codecs.open("Projekt_Końcowy/Zaklecia2.txt", 'r', 'utf-8') as plik:
+        with codecs.open("Pisanie_zaklec/Zaklecia2.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     elif(numer == 3):
-        with codecs.open("Projekt_Końcowy/Zaklecia3.txt", 'r', 'utf-8') as plik:
+        with codecs.open("Pisanie_zaklec/Zaklecia3.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     else:
         return wiadomosc_bledu
