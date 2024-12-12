@@ -1,21 +1,20 @@
 import codecs
-import os
 from threading import Timer
 
 def tekst(plik):
     with codecs.open(plik, "r", 'utf-8') as tekst:
         return tekst.readlines()
-  
+
 def wybor_tekstu(numer):
     wiadomosc_bledu = "Podano zły numer tekstu."
     if(numer == 1):
-        with codecs.open("Kodowi-Mgowie/Zaklecia1.txt", 'r', 'utf-8') as plik:
+        with codecs.open("Projekt_Końcowy/Zaklecia1.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     elif(numer == 2):
-        with codecs.open("Kodowi-Mgowie/Zaklecia2.txt", 'r', 'utf-8') as plik:
+        with codecs.open("Projekt_Końcowy/Zaklecia2.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     elif(numer == 3):
-        with codecs.open("Kodowi-Mgowie/Zaklecia3.txt", 'r', 'utf-8') as plik:
+        with codecs.open("Projekt_Końcowy/Zaklecia3.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     else:
         return wiadomosc_bledu
@@ -30,12 +29,17 @@ def formatowanie(lista):
     return wyrazy
 
 def przechwytywanie(wybrana_dlugosc_programu):
-    t = Timer(wybrana_dlugosc_programu, lambda: print("\nCzas minął. "))            #Muszę jeszcze przeanalizować jak to działa, ale wygląda obiecująco
-    t.start()
-    print("\nMasz", str(wybrana_dlugosc_programu), "sekund na napisanie tekstu\n")
+    t = Timer(wybrana_dlugosc_programu, lambda: print("\nCzas minął.\nWciśnij ENTER, aby zobaczyć wyiki."))            #t jest obiektem threading.Timer gdzie Timer(x, y) po upływie czasu x wywoła funkcję y
+    t.start()                                                                       #zainicjowanie nowego procesu
+    print("\nMasz", str(wybrana_dlugosc_programu), "sekund na napisanie tekstu\n")  
     odpowiedz = input()
-    t.cancel()
+    t.cancel()                                                                      #zatrzymanie procesu i wykonanie funkcji lambda: y
+    odpowiedz + ".STOP!#"                                                           #dodaję na końcu ".STOP!#", żeby wiedzieć w którym momencie użytkownik skończył pisać
     return odpowiedz.split()
+
+# zamiast funkcji lambda: print("\nCzas minął")
+# def czas_minal():
+#     print("\nCzas minął")
 
 def sprawdzanie_poprawnosci(wzorzec, przepisane):
     i = 0
@@ -43,16 +47,18 @@ def sprawdzanie_poprawnosci(wzorzec, przepisane):
     for i in range(len(przepisane)):
         if(przepisane[i] == wzorzec[i]):
             liczba_poprawnych += 1
+        elif(przepisane[i] == '.STOP!#'):
+            return liczba_poprawnych
         i += 1
     return liczba_poprawnych
 
 def main():
     while True:
         print("Witamy w sprawdzaniu szybkości pisania. wybierz tekst, w którym chcesz się sprawdzić: \n")
-        print("1. Magiczna kraina")
-        print("2. Pif - Paf")
-        print("3. Piosenka 3")
-        peint("4. Wyjscie z programu")
+        print("1. Fiku-Miku")
+        print("2. Monolog skryby")
+        print("3. Lorem Ipsum")
+        print("4. Wyjście z programu")
         wybor = int(input())
         if(wybor == 4):
             exit()
@@ -67,8 +73,8 @@ def main():
         print(tekst)
         przepisany_tekst = przechwytywanie(sekundy)
         ilosc_poprawnych = sprawdzanie_poprawnosci(tekst, przepisany_tekst)
-        print(f"Ilość poprawnie przepisanych słów: {ilosc_poprawnych}, stanowi to {round(ilosc_poprawnych/len(tekst), 2)} długości całego tekstu!\n")
-        print(f"Prędkość pisania wynosi {ilosc_poprawnych/(sekundy/60)} słów na minutę.")
+        print(f"Liczba poprawnie przepisanych słów: {ilosc_poprawnych}, stanowi to {round(ilosc_poprawnych/len(tekst), 2)} długości całego tekstu!")
+        print(f"Prędkość pisania wynosi {ilosc_poprawnych/(sekundy/60)} słów na minutę.\n")
 
 
 if __name__ == '__main__':
