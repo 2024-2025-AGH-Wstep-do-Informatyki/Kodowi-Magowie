@@ -3,23 +3,24 @@ import os
 from threading import Timer
 
 def tekst(plik):
-    with codecs.open(plik, "r", 'utf-8') as tekst:
-        return tekst.readlines()
+    with codecs.open(plik, "r", 'utf-8') as file:
+        return file.readlines()
   
 def wybor_tekstu(numer):
     wiadomosc_bledu = "Podano zły numer tekstu."
-    if(numer == 1):
-        with codecs.open("Kodowi-Mgowie/Zaklecia1.txt", 'r', 'utf-8') as plik:
+    if numer == 1:
+        with codecs.open("Zaklecia/1.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
-    elif(numer == 2):
-        with codecs.open("Kodowi-Mgowie/Zaklecia2.txt", 'r', 'utf-8') as plik:
+    elif numer == 2:
+        with codecs.open("Zaklecia/2.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
-    elif(numer == 3):
-        with codecs.open("Kodowi-Mgowie/Zaklecia3.txt", 'r', 'utf-8') as plik:
+    elif numer == 3:
+        with codecs.open("Zaklecia/3.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     else:
         return wiadomosc_bledu
 
+# Dunno what this function is to do about
 def formatowanie(lista):
     wyrazy_temp = []
     wyrazy = []
@@ -27,7 +28,7 @@ def formatowanie(lista):
         wyrazy_temp.append(wartosc.split())
     for a in wyrazy_temp:
         wyrazy.extend(a)
-    return wyrazy
+    return ' '.join(wyrazy)
 
 def przechwytywanie(wybrana_dlugosc_programu):
     t = Timer(wybrana_dlugosc_programu, lambda: print("\nCzas minął. "))            #Muszę jeszcze przeanalizować jak to działa, ale wygląda obiecująco
@@ -49,16 +50,16 @@ def sprawdzanie_poprawnosci(wzorzec, przepisane):
 def main():
     while True:
         print("Witamy w sprawdzaniu szybkości pisania. wybierz tekst, w którym chcesz się sprawdzić: \n")
-        print("1. Magiczna kraina")
-        print("2. Pif - Paf")
-        print("3. Piosenka 3")
-        peint("4. Wyjscie z programu")
+        print("1. Monolog maga")
+        print("2. Monolog skryby")
+        print("3. Lorem ipsum")
+        print("4. Wyjscie z programu")
         wybor = int(input())
-        if(wybor == 4):
+        if wybor == 4:
             exit()
         try:
             sekundy = int(input("Wybierz czas pisania spośród podanych (30, 60, 90 [sek.]): "))
-            if(sekundy != 30 and sekundy != 60 and sekundy != 90):
+            if sekundy != 30 and sekundy != 60 and sekundy != 90:
                 print("Wybrano złą opcję.")
                 continue
         except:
