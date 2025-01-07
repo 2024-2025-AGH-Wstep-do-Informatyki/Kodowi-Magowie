@@ -1,2 +1,3 @@
 to jest test konfliktu
+wprowadzenie zmian do pliku w gałęzi test_konfliktu_m
 zmiany w gałęzi main
