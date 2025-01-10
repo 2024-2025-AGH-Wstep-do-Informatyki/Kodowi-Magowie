@@ -7,7 +7,6 @@ def tekst(plik):
         return file.readlines()
   
 def wybor_tekstu(numer):
-    wiadomosc_bledu = "Podano zły numer tekstu."
     if numer == 1:
         with codecs.open("Zaklecia/1.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
@@ -18,7 +17,7 @@ def wybor_tekstu(numer):
         with codecs.open("Zaklecia/3.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
     else:
-        return wiadomosc_bledu
+        return "Podano zły numer tekstu." # Just use string literal as return value
 
 # Dunno what this function is to do about
 def formatowanie(lista):
