@@ -1,4 +1,6 @@
 to jest test konfliktu
+wprowadzenie zmian do pliku w gałęzi konflikt
+zmiany w gałęzi main
 wprowadzenie zmian do pliku w gałęzi konflikt 
 zmiany w gałęzi main zmiana
 
