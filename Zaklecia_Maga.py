@@ -7,18 +7,17 @@ def tekst(plik):
         return tekst.readlines()
   
 def wybor_tekstu(numer):
-    wiadomosc_bledu = "Podano zły numer tekstu."
-    if(numer == 1):
+    return_val = "Podano zły numer tekstu."
+    if numer == 1:
         with codecs.open("Kodowi-Mgowie/Zaklecia1.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
-    elif(numer == 2):
+    elif numer == 2:
         with codecs.open("Kodowi-Mgowie/Zaklecia2.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
-    elif(numer == 3):
+    elif numer == 3:
         with codecs.open("Kodowi-Mgowie/Zaklecia3.txt", 'r', 'utf-8') as plik:
             return formatowanie(plik.readlines())
-    else:
-        return wiadomosc_bledu
+    return return_val
 
 def formatowanie(lista):
     wyrazy_temp = []
